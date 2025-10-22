@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos - Bombers Team</title>
+    <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/png" href="imagenes/logos/logo_busqueda.png" />
+    <style>
+      /* ===== Sub-barra de colores para cinturones ===== */
+      .colores {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .color-btn {
+        width: 50px;
+        height: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .color-btn:hover {
+        transform: scale(1.2);
+      }
+
+      .info-color {
+        text-align: center;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        color: #e6e6e6;
+      }
+
+      /* Cinturones específicos */
+      .blanco {
+        background: #ffffff;
+      }
+      .blanco-amarillo {
+        background: linear-gradient(to right, #fff 70%, #ffeb3b 30%);
+      }
+      .amarillo {
+        background: #ffeb3b;
+      }
+      .amarillo-verde {
+        background: linear-gradient(to right, #ffeb3b 70%, #4caf50 30%);
+      }
+      .verde {
+        background: #4caf50;
+      }
+      .verde-marron {
+        background: linear-gradient(to right, #4caf50 70%, #795548 30%);
+      }
+      .marron {
+        background: #795548;
+      }
+      .marron-negro {
+        background: linear-gradient(to right, #795548 70%, #000000 30%);
+      }
+      .negro {
+        background: #000000;
+      }
+
+      /* Galería Uniformes */
+      .uniformes-galeria {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 2rem auto;
+      }
+
+      .uniforme-item {
+        width: 280px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .uniforme-item img {
+        width: 100%;
+        display: block;
+      }
+
+      .uniforme-item:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="productos">
+    <header>
+      <img
+        src="imagenes/logos/logo_bombers_blanco_1.png"
+        height="80px"
+        alt="Logo Bombers Team"
+      />
+    </header>
+
+    <nav>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#logros">Logros</a>
+      <a class="activo" href="productos.html">Cinturones / Uniforme</a>
+      <a href="index.html#membresia">Membresía</a>
+      <a href="index.html#contacto">Contacto</a>
+      <a class="bloqueado" href="#">Aprende</a>
+    </nav>
+
+    <main>
+      <!-- ===== CINTURONES ===== -->
+      <section id="cinturones">
+        <h2>Cinturones</h2>
+        <div class="colores">
+          <button
+            class="color-btn blanco"
+            onclick="mostrarCinturon('Blanco', 'Actividades: Fundamentos básicos, postura y técnicas iniciales.')"
+          ></button>
+          <button
+            class="color-btn blanco-amarillo"
+            onclick="mostrarCinturon('Blanco punta Amarilla', 'Actividades: Combinaciones simples y resistencia física.')"
+          ></button>
+          <button
+            class="color-btn amarillo"
+            onclick="mostrarCinturon('Amarillo', 'Actividades: Técnicas intermedias, defensa personal básica.')"
+          ></button>
+          <button
+            class="color-btn amarillo-verde"
+            onclick="mostrarCinturon('Amarillo punta Verde', 'Actividades: Formas y esquemas de combate.')"
+          ></button>
+          <button
+            class="color-btn verde"
+            onclick="mostrarCinturon('Verde', 'Actividades: Combinaciones avanzadas y velocidad.')"
+          ></button>
+          <button
+            class="color-btn verde-marron"
+            onclick="mostrarCinturon('Verde punta Marrón', 'Actividades: Estrategias de combate y precisión.')"
+          ></button>
+          <button
+            class="color-btn marron"
+            onclick="mostrarCinturon('Marrón', 'Actividades: Perfeccionamiento de técnicas y resistencia.')"
+          ></button>
+          <button
+            class="color-btn marron-negro"
+            onclick="mostrarCinturon('Marrón punta Negro', 'Actividades: Dominio de formas y preparación para negro.')"
+          ></button>
+          <button
+            class="color-btn negro"
+            onclick="mostrarCinturon('Negro', 'Actividades: Maestro del arte, examen final.')"
+          ></button>
+        </div>
+        <div id="infoColor" class="info-color">
+          Seleccioná un cinturón para ver su descripción
+        </div>
+      </section>
+
+<section id="uniforme">
+  <h2>Uniformes</h2>
+  <div class="uniformes-galeria">
+    <!-- Producto 1: Remera -->
+    <div class="uniforme-item">
+      <img 
+        src="imagenes/slider/remera1.jpg" 
+        alt="Remera" 
+        onclick="cambiarImagen(this, 'imagenes/slider/remera2.jpg', 'imagenes/slider/remera1.jpg')"
+      />
+    </div>
+
+    <!-- Producto 2: Buzo -->
+    <div class="uniforme-item">
+      <img 
+        src="imagenes/slider/buzo1.jpg" 
+        alt="Buzo" 
+        onclick="cambiarImagen(this, 'imagenes/slider/buzo2.jpg', 'imagenes/slider/buzo1.jpg')"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  // Función para alternar imagen frontal/trasera
+  function cambiarImagen(imgElement, imgTrasera, imgFrente) {
+    if (imgElement.src.includes(imgFrente.split('/').pop())) {
+      imgElement.src = imgTrasera;
+    } else {
+      imgElement.src = imgFrente;
+    }
+  }
+</script>
+
+    <footer>&copy; 2025 Bombers Team. Todos los derechos reservados.</footer>
+
+    <script>
+      function mostrarCinturon(nombre, descripcion) {
+        document.getElementById(
+          "infoColor"
+        ).innerHTML = `<strong>${nombre}</strong>: ${descripcion}`;
+      }
+    </script>
+  </body>
+</html>
